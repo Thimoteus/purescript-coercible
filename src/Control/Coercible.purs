@@ -1,4 +1,4 @@
-module Data.Coercible
+module Control.Coercible
   ( class Coercible
   , coerce ) where
 
@@ -6,9 +6,12 @@ import Prelude
 
 import Data.Int (toNumber)
 import Data.Char (toString)
-import Data.String (fromCharArray)
+import Data.String (fromCharArray, toCharArray, uncons)
 import Data.Foldable (foldMap)
-import Data.List (List)
+import Data.List (List(..), reverse)
+import Data.Maybe (Maybe(..))
+
+infixr 5 Cons as :
 
 class Coercible a b where
   coerce :: a -> b
@@ -31,6 +34,9 @@ instance coercibleCharString :: Coercible Char String where
 instance coercibleArrayCharString :: Coercible (Array Char) String where
   coerce = fromCharArray
 
+instance coercibleStringArrayChar :: Coercible String (Array Char) where
+  coerce = toCharArray
+
 -- Does this have too high a chance of running into overlapping instances?
 {-- instance coercibleShow :: Show a => Coercible a String where --}
 {--   coerce = show --}
@@ -49,3 +55,10 @@ instance coercibleApplicative :: Applicative f => Coercible a (f a) where
 -- so it's best not to keep it general
 instance coercableListCharString :: Coercible (List Char) String where
   coerce = foldMap toString
+
+instance coercibleStringListChar :: Coercible String (List Char) where
+  coerce = reverse <<< coerce' Nil where
+    coerce' acc str =
+      case uncons str of
+           Just { head, tail } -> coerce' (head : acc) str
+           _ -> acc

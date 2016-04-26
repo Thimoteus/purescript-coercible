@@ -5,7 +5,7 @@ import Control.Monad.Eff (Eff)
 import Control.Monad.Eff.Console (CONSOLE, print)
 
 import Data.List ((:), List(Nil))
-import Data.Coercible (class Coercible, coerce)
+import Control.Coercible (class Coercible, coerce)
 
 data N = Z | S N
 
