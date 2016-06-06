@@ -1,4 +1,4 @@
-# purescript-coercible [![Build Status](https://travis-ci.org/Thimoteus/purescript-coercible.svg?branch=master)](https://travis-ci.org/Thimoteus/purescript-coercible)
+# purescript-coercible
 
 *Fun with multi-parameter type classes!*
 
