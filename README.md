@@ -1,4 +1,4 @@
-# purescript-coercible
+# purescript-coercions
 
 *Fun with multi-parameter type classes!*
 
@@ -25,4 +25,4 @@ instance coercibleFilepathAddress :: Coercible Filepath Address where
 ```
 
 # install
-`bower i purescript-coercible`
+`bower i purescript-coercions`

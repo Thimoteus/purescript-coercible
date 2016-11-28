@@ -1,12 +1,12 @@
 {
-  "name": "purescript-coercible",
-  "version": "2.1.0",
+  "name": "purescript-coercions",
+  "version": "3.0.0",
   "moduleType": [
     "node"
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/thimoteus/purescript-coercible.git"
+    "url": "git://github.com/PipocaQuemada/purescript-coercions.git"
   },
   "license": "MIT",
   "ignore": [
@@ -16,12 +16,12 @@
     "output"
   ],
   "dependencies": {
-    "purescript-integers": "^1.0.0",
-    "purescript-strings": "^1.0.0",
-    "purescript-foldable-traversable": "^1.0.0",
-    "purescript-lists": "^1.0.0"
+    "purescript-integers": "^2.0.0",
+    "purescript-strings": "^2.0.0",
+    "purescript-foldable-traversable": "^2.0.0",
+    "purescript-lists": "^2.0.0"
   },
   "devDependencies": {
-    "purescript-console": "^1.0.0"
+    "purescript-console": "^2.0.0"
   }
 }
