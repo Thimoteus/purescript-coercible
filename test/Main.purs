@@ -2,7 +2,7 @@ module Test.Main where
 
 import Prelude
 import Control.Monad.Eff (Eff)
-import Control.Monad.Eff.Console (CONSOLE, print)
+import Control.Monad.Eff.Console (CONSOLE, logShow)
 
 import Data.List ((:), List(Nil))
 import Control.Coercible (class Coercible, coerce)
@@ -23,12 +23,12 @@ instance coerceNString :: Coercible N String where
 main :: forall e. Eff (console :: CONSOLE | e) Unit
 main = do
   let three = S (S (S Z))
-  print $ coerce three :: String
-  print $ coerce three :: Int
-  print $ coerce 3 :: Number
-  print $ coerce '3' :: String
-  print $ coerce 3 :: Unit
-  print $ coerce 3 :: Array Int
-  print $ coerce (coerce 3 :: Unit) :: Array Unit
-  print $ coerce ('a' : 'b' : 'c' : Nil) :: String
-  print $ coerce ['a', 'b', 'c'] :: String
+  logShow $ coerce three :: String
+  logShow $ coerce three :: Int
+  logShow $ coerce 3 :: Number
+  logShow $ coerce '3' :: String
+  logShow $ coerce 3 :: Unit
+  logShow $ coerce 3 :: Array Int
+  logShow $ coerce (coerce 3 :: Unit) :: Array Unit
+  logShow $ coerce ('a' : 'b' : 'c' : Nil) :: String
+  logShow $ coerce ['a', 'b', 'c'] :: String
