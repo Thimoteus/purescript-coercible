@@ -18,6 +18,8 @@ instance coercibleIntNumber :: Coercible Int Number where
   coerce = toNumber
 else instance coercibleCodePointString :: Coercible CodePoint String where
   coerce = fromCodePoint
+else instance coercibleCharCodePoint :: Coercible Char CodePoint where
+  coerce = codePointFromChar
 else instance coercibleCharString :: Coercible Char String where
   coerce = fromCodePoint <<< codePointFromChar
 else instance coercibleArrayCodePointString :: Coercible (Array CodePoint) String where
